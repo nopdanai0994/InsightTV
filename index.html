@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="mono.js"></script>
+    <script src="ch7.js"></script>
+    <script src="TNN24.js"></script>
+    <script src="WP.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>InsightTV</title>
+
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="switch-home">
+        <!-- Top bar -->
+        <div class="top-bar">
+            <div class="icons">
+                <img src="CH/logo.png" alt="logo">
+            </div>
+        </div>
+        <div class="scroll-arrows">
+            <span class="arrow left-arrow">&#9664;</span> <!-- Left arrow -->
+            <span class="arrow right-arrow">&#9654;</span> <!-- Right arrow -->
+        </div>
+        <!-- Horizontal scrollable tiles -->
+        <div class="tiles">
+            <div class="tile" id="CH7" CH="CH7" data-image="url('CH/CH7BG.jpg')">
+                <img src="CH/CH7.png" alt="CH7">
+                <p class="ch-title">CH7</p>
+            </div>
+            <div class="tile" id="Mono29" CH="Mono29" data-image="url('CH/MONOBG.jpg')">
+                <img src="CH/mono.png" alt="Mono29">
+                <p class="ch-title">MONO29</p>
+            </div>
+            <div class="tile" id="TNN" CH="TNN" data-image="url('CH/TNNBG.jpg')">
+                <img src="CH/TNN.png" alt="TNN24">
+                <p class="ch-title">TNN24</p>
+            </div>
+            <div class="tile" id="WP" CH="WP" data-image="url('CH/WPBG.jpg')">
+                <img src="CH/WP.png" alt="Workpoint">
+                <p class="ch-title">WorkpointTV</p>
+            </div>
+            <div class="tile" id="PP" CH="PP" data-image="url('CH/PPBG.jpg')">
+                <img src="CH/PP.png" alt="PPTV">
+                <p class="ch-title">PPTV</p>
+            </div>
+            <div class="tile" id="amarin" CH="amarin" data-image="url('CH/34BG.jpg')">
+                <img src="CH/34.png" alt="amarin">
+                <p class="ch-title">Amarin TV</p>
+            </div>
+            <div class="tile" id="CH3" CH="CH3" data-image="url('CH/CH3BG.jpg')">
+                <img src="CH/3.png" alt="CH3">
+                <p class="ch-title">CH3</p>
+            </div>
+            <div class="tile" id="CH8" CH="CH8" data-image="url('CH/CH8BG.jpg')">
+                <img src="CH/8.png" alt="CH8">
+                <p class="ch-title">CH8</p>
+            </div>
+            <div class="tile" id="TSP" CH="TSP" data-image="url('CH/TBG.jpg')">
+                <img src="CH/TSP.png" alt="Tsport">
+                <p class="ch-title">Tsports</p>
+            </div>
+            <div class="tile" id="GMM" CH="GMM" data-image="url('CH/GMMBG.jpg')">
+                <img src="CH/GMM.png" alt="GMM25">
+                <p class="ch-title">GMM25</p>
+            </div>
+            <div class="tile" id="MCOT" CH="MCOT" data-image="url('CH/MCOTBG.jpg')">
+                <img src="CH/MCOT.png" alt="MCOT">
+                <p class="ch-title">MCOT HD</p>
+            </div>
+            <div class="tile" id="NATION" CH="NATION" data-image="url('CH/NationBG.jpg')">
+                <img src="CH/Nation.png" alt="Nation">
+                <p class="ch-title">Nation</p>
+            </div>
+            <div class="tile" id="NBT" CH="NBT" data-image="url('CH/NBTBG.jpg')">
+                <img src="CH/NBT.png" alt="NBT">
+                <p class="ch-title">CH7</p>
+            </div>
+        
+            <div class="tile" id="thairath" CH="thairath" data-image="url('CH/32BG.jpg')">
+                <img src="CH/32.png" alt="thairath">
+                <p class="ch-title">Thairath</p>
+            </div>
+            <div class="tile" id="TOPNEWS" CH="TOPNEWS" data-image="url('CH/TOPBG.jpg')">
+                <img src="CH/TOP.png" alt="TOPNEWS">
+                <p class="ch-title">TOPNEWS</p>
+            </div>
+            <div class="tile" id="TPBS" CH="TPBS" data-image="url('CH/TPBSBG.jpg')">
+                <img src="CH/TPBS.png" alt="TPBS">
+                <p class="ch-title">ThaiPBS</p>
+            </div>
+            <div class="tile" id="TPTV" CH="TPTV" data-image="url('CH/TPBG.jpg')">
+                <img src="CH/TP.png" alt="TPTV">
+                <p class="ch-title">TPTV</p>
+            </div>
+            <div class="tile" id="True4U" CH="True4U" data-image="url('CH/TRUEBG.jpg')">
+                <img src="CH/True4U.png" alt="True4U">
+                <p class="ch-title">True4U</p>
+            </div>
+            <div class="tile" id="CH5" CH="CH5" data-image="url('CH/5BG.jpg')">
+                <img src="CH/5.png" alt="CH5">
+                <p class="ch-title">CH5</p>
+            </div>
+        </div>
+           
+    </div>
+    <div class="popup" id="popup">
+        <input type="text" id="userInput" placeholder="How many month will you predict?">
+        <button id="submitBtn">Submit</button>
+        <button id="closeBtn">Close</button>
+        <h1>Television Viewer Prediction</h1>
+        <label for="endMonth">End Month:</label>
+        <input type="number" id="endMonth" min="1" max="12" required>
+        <br>
+        <label for="endYear">End Year:</label>
+        <input type="number" id="endYear" min="2024" required>
+        <br>
+    </div>
+    <br><br><br>
+    <canvas id="televisionChart"></canvas>
+    <h3 id="chartTitle" style="text-align: center;"></h3>
+</body>
+</html>
