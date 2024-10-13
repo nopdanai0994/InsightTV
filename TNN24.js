@@ -210,8 +210,10 @@ function tnn() {
             chart.destroy(); // Destroy the existing chart instance
         }
         resetCanvas();
+        
         const ctx = document.getElementById('televisionChart').getContext('2d');
         document.getElementById('televisionChart').style.backgroundColor = ''; 
+        const endMonthName = monthNames[endMonth - 1];
         chart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -238,7 +240,7 @@ function tnn() {
                     },
                     title: {
                         display: true,
-                        text: 'TNN24 Predicted Viewers from October 2024 to (endMonth/endYear)',
+                        text: `TNN24 Predicted Viewers from October 2024 to ${endMonthName} ${endYear}`,
                         color: 'rgba(255, 255, 255, 1)', // Change title color
                         font: {
                             size: 22 // Title font size

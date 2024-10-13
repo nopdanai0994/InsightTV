@@ -1,3 +1,8 @@
+const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
+
 function calculateMonthsDifference(startMonth, startYear, endMonth, endYear) {
     const startDate = new Date(startYear, startMonth - 1, 1);
     const endDate = new Date(endYear, endMonth - 1, 1);
@@ -216,6 +221,7 @@ function wp() {
         resetCanvas();
         const ctx = document.getElementById('televisionChart').getContext('2d');
         document.getElementById('televisionChart').style.backgroundColor = ''; 
+        const endMonthName = monthNames[endMonth - 1];
         chart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -242,7 +248,7 @@ function wp() {
                     },
                     title: {
                         display: true,
-                        text: 'Workpoint TV Predicted Viewers from October 2024 to (endMonth/endYear)',
+                        text: `Workpoint TV Predicted Viewers from October 2024 to ${endMonthName} ${endYear}`,
                         color: 'rgba(255, 255, 255, 1)', // Change title color
                         font: {
                             size: 22 // Title font size

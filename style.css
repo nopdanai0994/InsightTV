@@ -1,4 +1,4 @@
-
+/* General styling */
 ::-webkit-scrollbar {
     display: none;
 }
@@ -13,9 +13,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: background-image 0.3s ease; /* Smooth transition for background image */
+    transition: background-image 0.3s ease;
     height: 100vh;
-    -ms-overflow-style: none; 
+    -ms-overflow-style: none;
 }
 .background {
     z-index: -1;
@@ -28,7 +28,7 @@ body {
 }
 .switch-home {
     width: 100vw;
-    position: relative; /* Relative positioning for arrow placement */
+    position: relative;
     transition: filter 0.3s ease;
 }
 
@@ -38,39 +38,38 @@ body {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background-color: '';
-    font-size: 50px;
+    font-size: 30px;
 }
 
 .icons img {
-    width: 200px;
+    width: 120px;
     padding: 10px;
 }
 
 /* Scroll arrows styling */
 .scroll-arrows {
     position: absolute;
-    top: 400px; /* Vertically center the arrows on the tiles */
-    transform: translateY(-50%); /* Adjust for perfect centering */
+    top: 400px;
+    transform: translateY(-50%);
     width: 100%;
     display: flex;
     justify-content: space-between;
-    pointer-events: none; /* Allows clicks to pass through to tiles */
-    z-index: 10; /* Bring arrows in front of the tiles */
+    pointer-events: none;
+    z-index: 10;
 }
 
 .arrow {
-    font-size: 60px;
+    font-size: 40px;
     color: #fff;
     cursor: pointer;
     padding: 10px;
     user-select: none;
-    pointer-events: auto; /* Allows clicking only on the arrow */
-    opacity: 1.0; /* Slight transparency */
+    pointer-events: auto;
+    opacity: 1.0;
 }
 
 .arrow:hover {
-    opacity: 1; /* Fully visible on hover */
+    opacity: 1;
 }
 
 /* Tiles section styling */
@@ -80,34 +79,32 @@ body {
     width: 90%;
     height: 250px;
     display: flex;
-    overflow-x: auto; /* Allow horizontal scrolling */
+    overflow-x: auto;
     padding-top: 50px;
-    scroll-behavior: smooth; /* Smooth scroll */
+    scroll-behavior: smooth;
     opacity: 100%;
-    z-index: 5; /* Ensure the tiles are behind the arrows */
+    z-index: 5;
 }
 
-/* Tile styling to fit 5 tiles in a row */
 .tile {
-    flex: 0 0 calc((100% - 6 * 20px) / 7); /* Fit 5 tiles with gaps between */
+    flex: 0 0 calc((100% - 6 * 20px) / 7);
     height: 210px;
     background-color: none;
     border-radius: 10px;
     transition: transform 0.3s ease;
-    margin-right: 20px; /* Space between tiles */
+    margin-right: 20px;
 }
+
 .tile img {
     width: 100%;
     height: 200px;
     border-radius: 10px;
 }
 
-/* Tile hover effect */
 .tile:hover {
     transform: scale(1.1);
 }
 
-/* Bottom bar styling */
 .bottom-bar {
     display: flex;
     justify-content: center;
@@ -119,34 +116,33 @@ body {
     width: 100%;
 }
 
-/* Hide scrollbars for a cleaner look */
 .tiles::-webkit-scrollbar {
     display: none;
 }
 .tiles {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-/* Pop-up styling */
-.popup {
-    display: none; /* Hide by default */
-    position: fixed; /* Fixed positioning */
-    width: 600px;
-    height: 320px;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Centering transform */
-    background-color: #313131; /* Background color */
-    padding: 20px; /* Padding */
-    border-radius: 30px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Shadow effect */
-    z-index: 100; /* Make sure it appears above other elements */
-    justify-content: center;  /* Center vertically */
-    align-items: center;      /* Center horizontally */
-    text-align: center;       /* Ensure text is centered */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-/* Overlay background */
+/* Pop-up styling */
+.popup {
+    display: none;
+    position: fixed;
+    width: 600px;
+    height: 320px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #313131;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .popup:before {
     content: '';
     position: fixed;
@@ -154,20 +150,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1; /* Behind the pop-up */
-    
+    z-index: -1;
 }
 
-.tile .ch-title{
-    font-size: 18px;            /* Set the font size for the title */
-    color: #fff;                /* White text color */
-    font-weight: bold;          /* Make the text bold */
-    text-align: center;         /* Center the text horizontally */
-    margin-top: 10px;           /* Add some space above the title */
-    text-shadow: 1px 1px 2px rgb(0, 0, 0); /* Subtle shadow for better contrast */
-    word-wrap: break-word;      /* Wrap long titles to fit within the tile */
-    padding: 5px;               /* Add some padding for breathing room */
-}
 #submitBtn, #closeBtn {
     padding: 10px 15px;
     font-size: 16px;
@@ -175,7 +160,7 @@ body {
     cursor: pointer;
     border-radius: 5px;
     margin-right: 20px;
-    border-radius: 50px; /* Rounded corners */
+    border-radius: 50px;
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -188,12 +173,12 @@ body {
     font-size: 16px;
     text-align: center;
     justify-content: center;
-}   
+}
 .popup-buttons {
     display: flex;
-    justify-content: center; /* Centers the buttons horizontally */
-    gap: 30px; /* Adds space between the buttons */
-    margin-top: 20px; /* Optional: Add some space above the buttons */
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
 }
 #submitBtn {
     background-color: #00e435;
@@ -204,14 +189,10 @@ body {
 #closeBtn {
     background-color: #da0016;
     color: #fff;
-    font-weight: bold   ;
+    font-weight: bold;
 }
-#result{
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-#endMonth{
+
+#endMonth, #endYear {
     width: calc(50% - 20px);
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -221,32 +202,66 @@ body {
     justify-content: center;
 }
 
-#endYear{
-    width: calc(50% - 20px);
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    margin-left: 15px;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
-    justify-content: center;
-}
-
-/* Background Blur Effect */
-.blur {
-    filter: blur(5px); /* Adjust the blur amount as needed */
-}
-#canvas{
+#canvas {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+/* Responsive Media Queries */
+
+/* For large screens (desktops) */
+@media (min-width: 1024px) {
+    .top-bar {
+        font-size: 50px;
     }
-#chartTitle{
-    font-size: 18px;            /* Set the font size for the title */
-    color: #fff;                /* White text color */
-    font-weight: bold;          /* Make the text bold */
-    text-align: center;         /* Center the text horizontally */
-    margin-top: 10px;           /* Add some space above the title */
-    text-shadow: 1px 1px 2px rgb(0, 0, 0); /* Subtle shadow for better contrast */
-    word-wrap: break-word;      /* Wrap long titles to fit within the tile */           /* Add some padding for breathing room */
+    .icons img {
+        width: 200px;
+    }
+    .arrow {
+        font-size: 60px;
+    }
+}
+
+/* For tablets (768px and up) */
+@media (max-width: 1024px) {
+    .top-bar {
+        font-size: 40px;
+    }
+    .icons img {
+        width: 150px;
+    }
+    .tile {
+        flex: 0 0 calc((100% - 4 * 15px) / 5); /* Adjust to fit 5 tiles in row */
+    }
+    .arrow {
+        font-size: 50px;
+    }
+}
+
+/* For mobile phones (up to 767px) */
+@media (max-width: 767px) {
+    .top-bar {
+        font-size: 30px;
+    }
+    .icons img {
+        width: 100px;
+    }
+    .tile {
+        flex: 0 0 calc((100% - 2 * 10px) / 2); /* Adjust to fit 2 tiles in a row */
+    }
+    .arrow {
+        font-size: 30px;
+    }
+    .popup {
+        width: 90%;
+        height: auto;
+    }
+    #userInput {
+        width: calc(100% - 20px);
+    }
+    #endMonth, #endYear {
+        width: calc(100% - 20px);
+        margin-bottom: 10px;
+    }
 }

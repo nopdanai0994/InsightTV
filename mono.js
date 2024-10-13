@@ -198,6 +198,7 @@ if (chart !== null) {
     chart.destroy(); // Destroy the existing chart instance
 }
 resetCanvas();
+const endMonthName = monthNames[endMonth - 1];
 const ctx = document.getElementById('televisionChart').getContext('2d');
 document.getElementById('televisionChart').style.backgroundColor = ''; 
 chart = new Chart(ctx, {
@@ -226,7 +227,7 @@ chart = new Chart(ctx, {
             },
             title: {
                 display: true,
-                text: 'MONO29 Predicted Viewers from September 2024 to (endMonth/endYear)',
+                text: `MONO29 Predicted Viewers from October 2024 to ${endMonthName} ${endYear} `,
                 color: 'rgba(255, 255, 255, 1)', // Change title color
                 font: {
                     size: 22 // Title font size

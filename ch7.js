@@ -198,86 +198,90 @@ function ch7() {
     try {
         const predictions = ch7recursiveForecast(endMonth, endYear, dataTelevision, coefficients, intercept);
 
-        // Prepare data for the chart
-        const labels = predictions.map(prediction => `${prediction.month}/${prediction.year}`);
-        const dataValues = predictions.map(prediction => prediction.predicted_tele_avg_viewer.toFixed(2));
-        if (chart !== null) {
-            chart.destroy(); // Destroy the existing chart instance
-        }
-        resetCanvas();
-        const ctx = document.getElementById('televisionChart').getContext('2d');
-        document.getElementById('televisionChart').style.backgroundColor = ''; 
-        chart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Predicted Average Viewers',
-                    data: dataValues,
-                    borderColor: 'rgba(255, 0, 0, 1)',
-                    backgroundColor: 'rgba(181, 0, 0, 1)',
-                    fill: false,
-                    tension: 0.1,
-                    pointRadius: 5,
-                    borderWidth: 5, // Increase this value for thicker lines
-                }]
+// Prepare data for the chart
+const labels = predictions.map(prediction => `${prediction.month}/${prediction.year}`);
+const dataValues = predictions.map(prediction => prediction.predicted_tele_avg_viewer.toFixed(2));
+
+if (chart !== null) {
+    chart.destroy(); // Destroy the existing chart instance
+}
+resetCanvas();
+const endMonthName = monthNames[endMonth - 1];
+const ctx = document.getElementById('televisionChart').getContext('2d');
+document.getElementById('televisionChart').style.backgroundColor = ''; 
+
+chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Predicted Average Viewers',
+            data: dataValues,
+            borderColor: 'rgba(255, 0, 0, 1)',
+            backgroundColor: 'rgba(181, 0, 0, 1)',
+            fill: false,
+            tension: 0.1,
+            pointRadius: 5,
+            borderWidth: 5, // Increase this value for thicker lines
+        }]
+    },
+    options: {
+        responsive: false, // Disable responsiveness to keep chart size fixed
+        maintainAspectRatio: false, // Allows you to maintain the canvas dimensions
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'rgba(255, 255, 255, 1)' // Change legend text color
+                }
             },
-            options: {
-                responsive: false, // Disable responsiveness to keep chart size fixed
-                maintainAspectRatio: false, // Allows you to maintain the canvas dimensions
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: 'rgba(255, 255, 255, 1)' // Change legend text color
-                        }
-                    },
-                    title: {
-                        display: true,
-                        text: 'CH7 Predicted Viewers from September 2024 to (endMonth/endYear)',
-                        color: 'rgba(255, 255, 255, 1)', // Change title color
-                        font: {
-                            size: 22 // Title font size
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Average Viewers',
-                            color: 'rgba(255, 255, 255, 255)', // Y-axis title color
-                            font: {
-                                size: 20 // Y-axis title font size
-                            }
-                        },
-                        ticks: {
-                            color: 'rgba(255, 255, 255, 1)', // Y-axis ticks color
-                        },
-                        grid: {
-                            color: 'rgba(200, 200, 200, 1)', // Change Y-axis grid line color
-                        }
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Date (Month/Year)',
-                            color: 'rgba(255, 255, 255, 1)', // X-axis title color
-                            font: {
-                                size: 20 // X-axis title font size
-                            }
-                        },
-                        ticks: {
-                            color: 'rgba(255, 255, 255, 1)', // X-axis ticks color
-                        },
-                        grid: {
-                            color: 'rgba(200, 200, 200, 1)', // Change Y-axis grid line color
-                        }
-                    }
+            title: {
+                display: true,
+                text: `CH7 Predicted Viewers from October 2024 to ${endMonthName} ${endYear}`, // Correctly using template literals
+                color: 'rgba(255, 255, 255, 1)', // Change title color
+                font: {
+                    size: 22 // Title font size
                 }
             }
-        });
-        document.getElementById('chartTitle').innerText = `Average Viewer คือ จำนวนคนโดยเฉลี่ยที่ดูรายการหรือช่องใดช่องหนึ่งในช่วงเวลา 1 นาที\n\n `;
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Average Viewers',
+                    color: 'rgba(255, 255, 255, 255)', // Y-axis title color
+                    font: {
+                        size: 20 // Y-axis title font size
+                    }
+                },
+                ticks: {
+                    color: 'rgba(255, 255, 255, 1)', // Y-axis ticks color
+                },
+                grid: {
+                    color: 'rgba(200, 200, 200, 1)', // Change Y-axis grid line color
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Date (Month/Year)',
+                    color: 'rgba(255, 255, 255, 1)', // X-axis title color
+                    font: {
+                        size: 20 // X-axis title font size
+                    }
+                },
+                ticks: {
+                    color: 'rgba(255, 255, 255, 1)', // X-axis ticks color
+                },
+                grid: {
+                    color: 'rgba(200, 200, 200, 1)', // Change Y-axis grid line color
+                }
+            }
+        }
+    }
+});
+document.getElementById('chartTitle').innerText = `Average Viewer คือ จำนวนคนโดยเฉลี่ยที่ดูรายการหรือช่องใดช่องหนึ่งในช่วงเวลา 1 นาที\n\n `;
+
     } catch (error) {
         alert(error.message);
     }
